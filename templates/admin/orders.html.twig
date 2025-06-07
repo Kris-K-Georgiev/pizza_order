@@ -1,6 +1,40 @@
 <h1>All orders</h1>
 
-<table border="1" cellpadding="5" cellspacing="0">
+<style>
+body {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+    thead{
+        background-color: #007bff;
+        color: #ffffff;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 10px;
+        vertical-align: top;
+    }
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+    h1{
+
+        margin-bottom: 20px;
+    }
+    td:nth-child(4) {
+        max-width: 300px;
+        word-wrap: break-word;
+    }
+</style>
+
+<table>
     <thead>
         <tr>
             <th>Client Name</th>
@@ -19,7 +53,7 @@
                 <td>{{ order.size }}</td>
                 <td>{{ order.ingredients|join(', ') }}</td>
                 <td>{{ order.comment }}</td>
-                <td>{{ order.createdAt|date('Y-m-d H:i:s') }}</td>
+                <td>{{ order.createdAt|date('Y-m-d H:i:s', 'Europe/Sofia') }}</td>
             </tr>
         {% else %}
             <tr>

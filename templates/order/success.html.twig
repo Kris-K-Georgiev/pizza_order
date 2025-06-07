@@ -1,2 +1,32 @@
+<style>
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.message-box{
+    background-color: #ffffff;
+    margin: 40px auto;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    text-a;lign: center;
+}
+h1{
+    color: #007bff;
+    margin-bottom: 15px;
+}
+p{
+    font-size: 18px;
+    margin: 0;
+}
+</style>
+
 <h1>Succsesfull order</h1>
-<p>Thank you, {{ order.clientName }}! Your order has been accepted.</p>
+<p>Thank you, <b>{{ order.clientName }}</b>! Your order has been accepted.</p>

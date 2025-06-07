@@ -1,10 +1,71 @@
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    h1 {
+        color: #333;
+        margin-bottom: 25px;
+    }
+    form{
+        background-color: #fff;
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        max-width: 400px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    label{
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    textarea {
+        resize: vertical;
+    }
+    .form-row-ingredients {
+        margin-bottom: 15px;
+    }
+    button[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
 <h1>Order Pizza</h1>
 
 {{ form_start(form) }}
-    {{ form_row(form.clientName) }}
+<div class="form-group">
+    {{ form_row(form.clientName) }} 
     {{ form_row(form.email) }}
     {{ form_row(form.size) }}
     {{ form_row(form.ingredients) }}
     {{ form_row(form.comment) }}
+</div>
+
     <button type="submit">Order</button>
 {{ form_end(form) }}

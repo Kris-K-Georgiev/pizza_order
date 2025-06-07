@@ -25,7 +25,7 @@ final class ApiOrderControllerPhpController extends AbstractController
                 'size' => $order->getSize(),
                 'ingredients' => $order->getIngredients(),
                 'comment' => $order->getComment(),
-                'createdAt' => $order->getCreatedAt()->format('Y-m-d H:i:s'),
+                'createdAt' => $order->getCreatedAt()->format('Y-m-d H:i:s', 'Europe/Sofia'),
             ];
         }
     return $this->json($data);

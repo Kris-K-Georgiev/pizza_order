@@ -1,0 +1,30 @@
+<h1>All orders</h1>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Client Name</th>
+            <th>Email</th>
+            <th>Size</th>
+            <th>Ingredients</th>
+            <th>Comment</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.clientName }}</td>
+                <td>{{ order.email }}</td>
+                <td>{{ order.size }}</td>
+                <td>{{ order.ingredients|join(', ') }}</td>
+                <td>{{ order.comment }}</td>
+                <td>{{ order.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">No orders found.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 final class OrderController extends AbstractController
 {
     #[Route('/order', name: 'order_create')]
-    public function index(Request $request, EntityManagerInterface $em): Response
+    public function order(Request $request, EntityManagerInterface $em): Response
     {
         $order = new Order();
         $order->setCreatedAt(new \DateTimeImmutable());
@@ -23,16 +23,16 @@ final class OrderController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $em->persist($order);
             $em->flush();
 
-        return $this->render('order/success.html.twig', [
-            'order'=> $order,
+            return $this->render('order/success.html.twig', [
+                'order' => $order,
+            ]);
+        }
+
+        return $this->render('order/form.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
-    return $this->render('order/index.html.twig', [
-        'form' => $form->createView(),
-    ]);
-}
 }
